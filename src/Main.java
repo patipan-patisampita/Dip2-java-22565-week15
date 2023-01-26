@@ -2,11 +2,22 @@ interface Fruit{
     // declare constant fields
     String color = "Red color fruit , Interface";
     void favorite();  // declare abstract methods
-    default void province(){
+    default void province(){ //Default methods of interface
         System.out.println("Chanthaburi");
     }
 }
-class App implements Fruit{
+
+interface Brand{
+    void name(); // declare abstract methods
+}
+
+class Apple implements Fruit,Brand{
+
+    @Override
+    public void name() {
+        System.out.println("Dole brand");
+    }
+
     public void province(){
         System.out.println("A Interface default method");
     }
@@ -17,8 +28,10 @@ class App implements Fruit{
 
 public class Main {
     public static void main(String[] args) {
-        App objApp = new App();
-        App objApp2 = new App();
+        Apple objApp = new Apple();
+        Apple objApp2 = new Apple();
+        Apple objApp3 = new Apple();
+        objApp3.name();
         objApp2.province();
         objApp.favorite();
     }
